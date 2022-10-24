@@ -1,0 +1,38 @@
+{%extends 'base.html' %}
+
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+
+          
+          <a href="{% url 'notes_list'%}">Go Back</a>
+            <br></br>
+
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                  <article class="tile is-child box">
+                    <p class="title">Be aware! this action cannot be undo</p>
+
+                    <form  action="{% url 'delete_all_notes' %}" method='post'>
+                        {% csrf_token %}
+                        <p>
+                            Are you sure to delete all the notes? 
+                            
+                            <input type='submit' value='submit' class="button is-danger">
+                        </p>
+                    </form>
+                  </article>
+
+                  
+                </div>
+            </div>
+            
+            <div class="buttons">
+              
+          </div>
+
+
+        </div>
+    </section>
+{% endblock %}

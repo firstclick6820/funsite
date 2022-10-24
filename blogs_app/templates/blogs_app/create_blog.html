@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+
+    <section class="section">
+
+
+      <div class='columns'>
+
+          <div class='column is-one-fifth'>
+
+              <aside>
+                <div class="card">
+                    <div class="card-image">
+                      <figure class="image is-4by3">
+                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-left">
+                          <figure class="image is-48x48">
+                            <img src="{{user.profile.image.url}}" alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="media-content">
+                          <p class="title is-4">{{user.username|title}}</p>
+                          <p class="subtitle is-6">@{{user.username}}</p>
+                        </div>
+                      </div>
+                  
+                      <div class="content">
+                        <p>Firstname: {{user.profile.first_name}}</p>
+                        <p>Lastname: {{user.profile.last_name}}</p>
+                      </div>
+                    </div>
+                  </div>
+
+               
+              </aside>
+          </div> {% comment %} End is-one-fifth Column {% endcomment %}
+        
+          <div class=" column is-four-fifths">
+              <h1 class="title"> Create Post</h1>
+              <p><a href="{% url 'blog_list' %}" class="is-pulled-left">Go Back</a></p>
+              <br></br>
+              
+
+            <div class="box">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="field">
+                        <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="Blog Title" name='title'>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                
+                    <div class="field">
+                        <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                            <textarea class="textarea" placeholder="Blog Body ..." name='content'></textarea>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class='field'>
+                        <div class="file field-body">
+                            <label class="file-label">
+                                <input class="file-input" type="file" name="image">
+                                <span class="file-cta">
+                                <span class="file-label">
+                                    Image ....
+                                </span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                                    
+                    <div class="field">
+                        <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                            <button class="button is-primary" type='submit'>Add Blog</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+          </div> {% comment %}  End is-four-fifths Column {% endcomment %}
+      </div> {% comment %} End Columns Div {% endcomment %}
+    </section>{% comment %} End Section {% endcomment %}
+{% endblock %}
+

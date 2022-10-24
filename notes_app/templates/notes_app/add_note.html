@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Add A Note</h1>
+            
+            <a href="{% url 'notes_list'%}">Go Back</a>
+            <br></br>
+          
+            <div class="columns ">
+                
+                    <div class="column"> 
+                        <div class="box">
+                            <form action="{% url 'add_note' %}" method="POST">
+                                {% csrf_token %}
+                                <div class="field">
+                                    <label class="label">Title</label>
+                                    <div class="control">
+                                      <input class="input" type="text" placeholder="Note Title" name='title'>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="field">
+                                    <label class="label">Body</label>
+                                    <div class="control">
+                                        <textarea class="textarea" placeholder="Explain the note description" name='body'></textarea>
+                                    </div>
+                                  </div>
+
+                                  <div class="buttons">
+                                    <input class="button is-primary" type='submit' value='Add'>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{%extends 'base.html' %}
+
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+          <a href="{% url 'notes_list'%}">Go Back</a>
+            <br></br>
+
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                  <article class="tile is-child box">
+                    <p class="title">{{note.title}}</p>
+                    <p><strong>Created At:</strong> {{note.created_at}}</p>
+                    <p>{{note.body}}</p>
+                  </article>
+                </div>
+            </div>
+            
+            <div class="buttons">
+              <a class="button is-primary" href="{% url 'update_note' note.id %}">Update Note</a>
+              <a class="button is-danger" href="{% url 'delete_note' note.id %}">Delete Note</a>
+              <a class="button is-primary" href="{% url 'note_view_pdf' note.id %}">View PDF</a>
+              <a class="button is-primary" href="{% url 'note_get_pdf' note.id %}">Downlaod</a>
+          </div>
+
+
+        </div>
+    </section>
+{% endblock %}

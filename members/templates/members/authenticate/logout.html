@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main>
+    <div class="container">
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+        
+          <br></br>
+          <div class="row justify-content-center">
+            
+                
+             
+                 
+            <p>You Just loggout! <a href="{% url 'member_login' %}">Login Again!</a></p>
+                  
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main><!-- End #main -->
+
+{% endblock %}
